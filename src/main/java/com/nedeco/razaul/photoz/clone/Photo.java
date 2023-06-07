@@ -1,5 +1,8 @@
 package com.nedeco.razaul.photoz.clone;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.validation.constraints.NotNull;
+
 public class Photo {
     public Photo() {
     }
@@ -25,9 +28,21 @@ public class Photo {
         this.id = id;
     }
 
+    @NotNull
     public String fileName;
     public String id;
+
+    @JsonIgnore
+    public byte[] getData() {
+        return data;
+    }
+
+    public void setData(byte[] data) {
+        this.data = data;
+    }
+
     //raw data
+    private byte[] data;
 
 
 }
